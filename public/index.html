@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#070b19">
+  <meta name="description" content="Orbriva.io: domina la gravedad, absorbe energía y conviértete en el vórtice más grande de la galaxia.">
+  <title>Orbriva.io · Domina la gravedad</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <canvas id="arena" aria-label="Arena multijugador de Orbriva.io"></canvas>
+  <div id="vignette" aria-hidden="true"></div>
+
+  <header class="hud-header">
+    <div class="brand"><span class="brand-icon">◉</span><span>ORBRIVA<span class="brand-dot">.IO</span></span></div>
+    <div class="online-pill"><span class="live-dot"></span><span id="online">Conectando...</span></div>
+  </header>
+
+  <section class="player-hud" id="playerHud" hidden>
+    <div class="hud-overline">TU ENERGÍA</div>
+    <div class="score-line"><strong id="mass">27</strong><span>masa</span></div>
+    <div class="boost-label"><span>GRAVEDAD CONCENTRADA</span><span id="boostPercent">100%</span></div>
+    <div class="boost-track"><div id="boostFill" class="boost-fill"></div></div>
+  </section>
+  <aside class="leaderboard" id="leaderboard" hidden>
+    <div class="leader-title"><span>CLASIFICACIÓN</span><span class="trophy">✦</span></div>
+    <div id="leaderRows"></div>
+  </aside>
+
+  <div class="bottom-hud" id="bottomHud" hidden>
+    <div class="hint"><span class="keycap">MOUSE</span> Moverse <span class="hint-separator">·</span> <span class="keycap">CLIC / ESPACIO</span> Concentrar gravedad</div>
+    <div class="coords" id="coords">X 0000 · Y 0000</div>
+  </div>
+  <button id="mobileFocus" class="mobile-focus" type="button" aria-label="Concentrar gravedad" hidden>◉<span>PULSO</span></button>
+
+  <main class="screen" id="intro">
+    <div class="intro-content">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> LA ARENA GRAVITACIONAL MULTIJUGADOR</div>
+      <h1>CONVIÉRTETE EN<br><span>EL CENTRO</span><br>DEL UNIVERSO.</h1>
+      <p class="intro-copy">Absorbe energía. Domina la gravedad.<br>Supera a otros vórtices y conquista la galaxia.</p>
+      <div class="entry">
+        <label for="nickname">TU IDENTIDAD EN LA ARENA</label>
+        <div class="entry-row"><input id="nickname" type="text" placeholder="Nombre de jugador" autocomplete="nickname" maxlength="18" spellcheck="false" aria-label="Tu apodo"><button id="play" class="primary" type="button">ENTRAR A LA ARENA <span>→</span></button></div>
+        <span class="entry-help" id="entryHelp">Gratis · Sin registro · Partidas instantáneas</span>
+      </div>
+      <div class="how-to">
+        <div><span class="how-num">01</span><strong>ABSORBE</strong><small>Recoge partículas y gana masa</small></div>
+        <div><span class="how-num">02</span><strong>ATRAE</strong><small>Concentra tu campo gravitacional</small></div>
+        <div><span class="how-num">03</span><strong>DOMINA</strong><small>Persigue, escapa y sube al ranking</small></div>
+      </div>
+      <div class="intro-bottom"><span>Multijugador en tiempo real con oponentes humanos y bots IA</span><a href="/privacy.html">Privacidad</a></div>
+    </div>
+    <div class="planet-scene" aria-hidden="true"><div class="planet-orbit orbit-one"></div><div class="planet-orbit orbit-two"></div><div class="planet-orbit orbit-three"></div><div class="planet-core"></div><div class="planet-speck speck-one"></div><div class="planet-speck speck-two"></div></div>
+  </main>
+
+  <section class="screen death-screen is-hidden" id="death" aria-live="polite">
+    <div class="death-card">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> PARTIDA TERMINADA</div>
+      <h2>TU GRAVEDAD<br><span>DEJÓ HUELLA.</span></h2>
+      <p id="deathReason">Has sido absorbido por otro vórtice.</p>
+      <div class="results"><div><span>MASA FINAL</span><strong id="finalMass">0</strong></div><div><span>TIEMPO</span><strong id="survival">0 s</strong></div><div><span>RÉCORD LOCAL</span><strong id="best">0</strong></div></div>
+      <button id="replay" class="primary wide" type="button">VOLVER A LA ARENA <span>→</span></button>
+      <div class="death-footnote">Una nueva oportunidad de conquistar el universo.</div>
+    </div>
+  </section>
+  <div id="notice" class="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="/client.js"></script>
+</body>
+</html>

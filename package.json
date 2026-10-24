@@ -1,0 +1,16 @@
+{
+  "name": "orbriva-io",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Orbriva.io: multiplayer gravity arena with server-authoritative simulation",
+  "engines": {"node": ">=20"},
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
+  }
+}

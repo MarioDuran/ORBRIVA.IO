@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: orbriva-io
+    runtime: node
+    plan: free # Cambiar a starter (de pago) antes de abrir al publico.
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MIN_POPULATION
+        value: "16"
+      - key: MAX_HUMANS
+        value: "45"
+      - key: ADSENSE_CLIENT
+        sync: false # ca-pub-XXXXXXXXXXXXXXXX, tras aprobarse en Google.
